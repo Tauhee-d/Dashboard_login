@@ -104,10 +104,13 @@ router.post("/signin", async (req, res) => {
           const token = jwt.sign({ id: user._id }, "secret", {
             expiresIn: "365 days",
           });
+        //   res.json(user)
+          
           res.status(200).send({
             token: token,
             message: "Sucessfull loged in",
-          });
+            user: user.accountType,
+          })
         } else {
           res.status(406).send({
             error: "password does not match",

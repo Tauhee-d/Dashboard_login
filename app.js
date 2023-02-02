@@ -7,7 +7,12 @@ require('./db/conn')
 app.use(cors({origin:true}))
 app.use(express.json())
 
+
 // Routes
+
+app.get('/', (req,res)=> {
+    res.send('welcome')
+})
 
 const UserRoutes = require('./routes/userroute')
 app.use('/', UserRoutes)
